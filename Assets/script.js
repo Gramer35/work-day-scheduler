@@ -17,6 +17,7 @@ $(function () {
 
   const today = dayjs();
   const currentHour = parseInt(today.format('H'));
+  console.log(currentHour);
   
   $('.time-block').each(function () {
     const timeBlock = $(this);
@@ -24,14 +25,14 @@ $(function () {
   
     // preset
     if (currentHour === hour) {
-      timeBlock.setAttribute('class', 'present')
+      timeBlock.attr('class', 'present')
       // past
     } else if (currentHour < hour) {
-      timeBlock.setAttribute('class', 'past')
+      timeBlock.attr('class', 'past')
   
       // future
     } else {
-      timeBlock.setAttribute('class', 'future')
+      timeBlock.attr('class', 'future')
   
     };
 

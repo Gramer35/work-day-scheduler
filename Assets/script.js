@@ -23,19 +23,19 @@ $(function () {
     const timeBlock = $(this);
     const hour = parseInt(timeBlock.attr('id').split('-').pop());
   
-    // preset
-    if (currentHour === hour) {
-      timeBlock.attr('class', 'present')
+    // present
+    if (hour === currentHour) {
+      timeBlock.addClass('present')
       // past
-    } else if (currentHour < hour) {
-      timeBlock.attr('class', 'past')
+      
+    } else if (hour < currentHour) {
+      timeBlock.addClass('past')
   
       // future
     } else {
-      timeBlock.attr('class', 'future')
+      timeBlock.addClass('future')
   
     };
-
 });
 
 //

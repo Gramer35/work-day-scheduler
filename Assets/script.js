@@ -9,10 +9,20 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
 
-  // I'm only getting the first save button?
-  const saveBtn = $('.time-block').children().eq(2);
-  saveBtn.on('click', function () {
-    console.log('click');
+  $('.time-block').each(function () {
+    const $this = $(this);
+    const id = $this.attr('attr');
+    const val = localStorage.getItem(id)
+
+    $this.children('textarea').eq(0).val(val)
+  });
+
+  $('saveBtn').on('click', function() {
+    const $this = $(this);
+    const val = $this.siblings('textarea').eq(0).val();
+    const id = $this.parent().attr('id');
+
+    localStorage.setItem(id, val);
   })
 
   // TODO: Add code to apply the past, present, or future class to each time
